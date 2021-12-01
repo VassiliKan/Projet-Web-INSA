@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>JS</title>
+        <script src="bourse.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="header.js"></script>
+        <link rel="stylesheet" href="header.css">
+        <link rel="stylesheet" href="bourse.css">
+    </head>
+    <header>
+        <div>
+            <div>
+                <p id="argent_courant">
+                    argent : <span id="argent_courant2"></span>
+                    $
+                </p>
+                <p id="argent_du">
+                    dettes : 
+                    <span id="dettes"></span>
+                    $
+                </p>
+            </div>
+            <div id="jour_suivant">
+                <button style="font-size:24px" id="button_pass" onClick = "transition()">Button <i class="fa fa-arrow-circle-right"></i></button>
+            </div>
+            <div>
+                <p id ="date_courante">
+                    date: 
+                    <span id="date_jeu"></span>
+                </p>
+            </div>
+        </div>
+        <nav>
+            <div>
+                <a href="index.html">Accueil</a>
+            </div>
+            <div>
+                <a href="bank.html">Banque</a>
+            </div>
+            <div>
+                <a href="bourse.html">Bourse</a>
+            </div>
+        </nav>
+    </header>
+    <body>
+        <div id="message">
+
+        </div>
+        <form action="">
+            <div class="radio">
+                <input type="radio" id="acheter" name="achat" value="acheter" checked>
+                <label for="acheter">Acheter</label>
+            </div>
+            <div class="radio">
+                <input type="radio" id="vendre" name="achat" value="vendre">
+                <label for="vendre">Vendre</label>
+            </div>
+            <div>
+                <label for="stocks">Stock : </label>
+                <select name="stock" id="stock-select">
+                    <option value="airbus">Airbus</option>
+                    <option value="apple">Apple</option>
+                    <option value="boeing">Boeing</option>           
+                    <option value="disney">Disney</option>                       
+                    <option value="facebook">Facebook</option>
+                    <option value="google">Google</option>
+                    <option value="microsoft">Microsoft</option>
+                    <option value="toyota">Toyota</option>           
+                </select>
+            </div>
+            <div>
+                <label>Volume : </label>
+                <input type="text" id="vol">
+            </div>
+            <div>
+                <label>Price : </label>
+                <input type="text" id="price">
+            </div>
+            <div>
+                <input type="submit" onclick="buy()" value="Submit">
+            </div>
+    </form>
+    </body>
+    <footer>
+    </footer>
+</html>

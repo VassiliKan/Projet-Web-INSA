@@ -1,0 +1,11 @@
+section div{
+    display:inline-block;
+    width: 33%;
+}
+section div img{
+    width:300px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    vertical-align:center;
+}

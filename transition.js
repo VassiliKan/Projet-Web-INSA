@@ -49,6 +49,12 @@ transition = function() {
     headerprint();
 }
 
+transitionDay = function(){
+    for (let i=0; i<24; i++){
+        transition();
+    }
+}
+
 transitionPlay =  function ()
 {
     var intervalId = setInterval(transition,100);

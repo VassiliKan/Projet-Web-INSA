@@ -1,0 +1,13 @@
+button{
+    display:flex;
+    justify-content:center;
+    vertical-align:center;
+    margin: auto;
+    margin-top:40vh;
+    height:20vh;
+    width:30vh;
+}
+span{
+    margin:auto;
+    font-size:40px
+}

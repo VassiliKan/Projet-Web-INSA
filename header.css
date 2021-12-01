@@ -1,0 +1,21 @@
+header{
+    width:100%;
+    margin-bottom:200px;
+}
+
+header div>div{
+    display:inline-block;
+    width:33%;
+    margin:auto;
+}
+header div p{
+    display:flex;
+    justify-content: center;
+    margin:auto;
+    vertical-align: center;
+}
+header button{
+    display:flex;
+    justify-content:center;
+    margin:auto;
+}

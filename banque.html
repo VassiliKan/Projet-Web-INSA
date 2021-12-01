@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="banque.css">
+  <script type="text/javascript" src="bank.js"></script>
+  <script type="text/javascript" src="header.js"></script>
+  <script type="text/javascript" src="transition.js"></script>
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>La Banque</title>
+</head>
+<header>
+    <div>
+        <p id="argent_courant">
+            argent : <span id="argent_courant2"></span>
+            $
+        </p>
+        <p id="argent_du">
+            dettes : 
+            <span id="dettes"></span>
+            $
+        </p>
+    </div>
+    <div id="jour_suivant">
+        <button style="font-size:24px" id="button_pass" onClick = "transition()">Button <i class="fa fa-arrow-circle-right"></i></button>
+    </div>
+    <div>
+        <p id ="date_courante">
+            date: 
+            <span id="date_jeu"></span>
+        </p>
+    </div>
+
+</header>
+    <body>
+        <div id="banque">
+            <div class = "argent">Argent disponible: </div>
+            <div id = "interet"> Taux d'intérêt: </div>
+        </div>
+        <div class="radio">
+            <input type="radio" id="emprunter" name="emprunt" value="emprunter" checked>
+            <label for="acheter">Emprunter</label>
+        </div>
+        <div class="radio">
+            <input type="radio" id="rembourser" name="emprunt" value="rembourser">
+            <label for="vendre">Rembourser</label>
+        </div>
+        <div id = "emprunt">
+            <div>Valeur :<input text="html" id="emp"> </div>
+            <button class="confirmation" onclick="emprunter()">Confirmer</button>
+        </div>
+
+    </body>
+
+        
+</html>

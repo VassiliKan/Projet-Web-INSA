@@ -1,0 +1,23 @@
+
+#banque{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 20px;
+    grid-auto-rows: minmax(100px,auto);
+}
+.argent{
+    grid-column: 1 / 2;
+    
+}
+
+#emprunt{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px,auto);
+
+}
+
+.radio{
+    display:inline-block;
+}

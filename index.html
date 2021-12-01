@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="index.css">
+    <script type="text/javascript" src="header.js"></script>
+    <script type="text/javascript" src="transition.js"></script>
+    <title>Pendu</title>
+</head>
+<body>
+    <header>
+        <div>
+            <div>
+                <p id="argent_courant">
+                    argent : <span id="argent_courant2"></span>
+                    $
+                </p>
+                <p id="argent_du">
+                    dettes : 
+                    <span id="dettes"></span>
+                    $
+                </p>
+            </div>
+            <div id="jour_suivant">
+                <button style="font-size:24px" id="button_pass" onClick = "transition()">Button <i class="fa fa-arrow-circle-right"></i></button>
+            </div>
+            <div>
+                <p id ="date_courante">
+                    date: 
+                    <span id="date_jeu"></span>
+                </p>
+            </div>
+        </div>
+        <nav>
+            <div>
+                <a href="index.html">Accueil</a>
+            </div>
+            <div>
+                <a href="index.html">Accueil</a>
+            </div>
+            <div>
+                <a href="index.html">Accueil</a>
+            </div>
+        </nav>
+    </header>
+    <section>
+        <div id="bourse">
+            <img src="images\bourse_icon.png" alt="" onClick="window.location.href='bourse.html'">
+        </div>
+        <div>
+            <img src="images\bank_icon.png" alt="" onClick="window.location.href='banque.html'">
+        </div>
+        <div>
+            <img src="images\newspaper.png" alt="" onClick="window.location.href='media.html'">
+        </div>
+    </section>
+</body>
+</html>

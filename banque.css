@@ -1,23 +1,23 @@
-
 #banque{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    grid-gap: 20px;
-    grid-auto-rows: minmax(100px,auto);
+    border: 5px solid black;
+    padding:5%;
+    margin: auto 10%;
 }
-.argent{
-    grid-column: 1 / 2;
-    
-}
-
-#emprunt{
-    display:grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-gap: 10px;
-    grid-auto-rows: minmax(100px,auto);
-
+#interet{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size : 20pt;
+    margin: auto 30%;
 }
 
 .radio{
     display:inline-block;
+    margin: 2% 2%
+}
+
+.action{
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border : 5px solid black;
+    padding:1%;
+    margin: 5% 30%;
 }

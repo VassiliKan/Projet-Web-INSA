@@ -8,6 +8,11 @@ header div>div{
     width:33%;
     margin:auto;
 }
+header div>div>div{
+    display:inline-block;
+    width:32%;
+    margin:auto;
+}
 header div p{
     display:flex;
     justify-content: center;
@@ -18,9 +23,10 @@ header button{
     display:flex;
     justify-content:center;
     margin:auto;
+    font-size:18px;
 }
 header nav{
-    width:50%;
+    width:100%;
     margin:auto;
 }
 header nav div{

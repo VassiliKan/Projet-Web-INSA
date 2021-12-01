@@ -1,7 +1,8 @@
-function DateJeu(j,m,a){
+function DateJeu(j,m,a,h){
     this.jour = j;
     this.mois = m;
     this.annee = a;
+    this.heure = h;
 }
 
 function Bank(t,d){
@@ -14,14 +15,16 @@ function Stock(name, unitPrice, units){
     this.unitsNumber = units;
 }
 
-var stockUser = {}
+var stocksUser = {}
 
+var boolPlay = false;
+sessionStorage.setItem("boolPlay",boolPlay);
 var argent = 0;
 
 var dettes = 0;
 var taux = 0.1;
 
-var date = new DateJeu(1,1,2021);
+var date = new DateJeu(1,1,2021,0);
 
 var stocksAvailable = {};
 stocksAvailable["airbus"] = new Stock("airbus", 70, 150000);

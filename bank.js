@@ -19,14 +19,17 @@ function emprunter(){
         sessionStorage.setItem("dettes",dettes);
         headerprint();
     }else{
+        var cond = parseFloat(argent,10) - evalue < 0;
+        if (cond < 0){
+            alert("pas assez d\'argent")
+        }
+        else{
         argent = parseFloat(argent,10) - evalue;
         document.getElementById("emp").value = '';
         sessionStorage.setItem("argent",argent);
         argent = sessionStorage.getItem("argent");
-        if (dettes < 0){
-            alert("on rend pas l'argent");
-        }
         sessionStorage.setItem("dettes",dettes);
         headerprint();
+        }
     }
 }

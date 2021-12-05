@@ -2,10 +2,11 @@
 <html>
     <head>
         <title>JS</title>
-        <script src="bourse.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="header.js"></script>
         <link rel="stylesheet" href="header.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="bourse.js"></script>
         <link rel="stylesheet" href="bourse.css">
         <script type="text/javascript" src="header.js"></script>
         <script type="text/javascript" src="transition.js"></script>
@@ -54,10 +55,8 @@
         </nav>
     </header>
     <body>
-        <div id="message">
-
-        </div>
-        <form action="">
+    <section>
+        <form>
             <div class="radio">
                 <input type="radio" id="acheter" name="achat" value="acheter" checked>
                 <label for="acheter">Acheter</label>
@@ -84,14 +83,41 @@
                 <input type="text" id="vol">
             </div>
             <div>
-                <label>Price : </label>
-                <input type="text" id="price">
+                <label id="montant">Montant : </label>
             </div>
             <div>
                 <input type="submit" onclick="retrieveData()" value="Submit">
             </div>
-    </form>
-    </body>
+        </form>
+        <table id="table_bourse">
+        <thead>
+            <tr>
+                <th colspan="3">Tableau de bourse</th>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <th>Valeur</th>
+                <th>Nb Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        </table>
+    </section>
+    <table id="table_variations">
+        <thead>
+            <tr>
+                <th colspan="4">Variation des Actions</th>
+            </tr>
+            <tr>
+                <th colspan="2">Variations par Heure</th>
+                <th colspan="2">Variations par Jour</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    </body>  
     <footer>
     </footer>
 </html>

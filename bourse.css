@@ -1,3 +1,54 @@
 .radio{
     display:inline-block;
 }
+section table{
+    background-color:white;
+}
+section table, section form{
+    float: right;
+    display:block;
+    margin-left:80%;
+    margin-right:20px;
+}
+section{
+    position:sticky;
+    top:120px;
+    right:0px;
+}
+table, td,th{
+    border: 1px solid black;
+    text-align:center;
+}
+.td_graph canvas{
+    width: 500px !important;
+}
+#table_variations{
+    display:inline-block;
+    margin-left:20px;
+}
+th, td{
+    padding: 8px 15px !important;
+    font-size:18px;
+}
+.td_name, #table_variations th{
+    font-size:30px;
+    width:150px;
+}
+/**
+#table_variations{
+    display:block;
+    width:100%;
+}
+#table_variations thead, #table_variations tr{
+    display:block;
+    width:100%;
+}
+#table_variations .td_graph{
+    width: 80%;
+}
+.td_name{
+    width:20%;
+}
+#table_variations .td_graph canvas{
+    width: 100% !important;
+}*/

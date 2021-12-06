@@ -1,5 +1,3 @@
-
-
 headerprint = function(){
     var argent = sessionStorage.getItem("argent");
     let dettes = sessionStorage.getItem("dettes");
@@ -12,13 +10,4 @@ headerprint = function(){
 document.addEventListener('DOMContentLoaded', function() {
     headerprint();
  }, false);
-
-
-// let date = sessionStorage.getItem("date");
-//document.getElementById("date").html(jour);
-/**
- * Date.prototype.setDate()
- * Date.prototype.setFullYear()
- * Date.prototype.setMonth()
- */
 

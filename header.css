@@ -5,6 +5,9 @@ header{
     top:0px;
     background-color: white;
 }
+*{
+    font-family: 'Montserrat Alternates', sans-serif;
+}
 table{border-collapse: collapse;}
 
 header div>div{
@@ -47,4 +50,26 @@ header nav div a{
 header nav div a{
     text-decoration:none;
     color:green;
+}
+.inline *{
+    display:inline-block;
+}
+.inline{
+    justify-content:center;
+}
+.inline p{
+    margin-left:15px;
+    font-size:25px;
+}
+.inline img{
+    width: 35px !important;
+}
+body{
+    margin: none;
+}
+header{
+    padding-top:10px;
+}
+p#date_courante{
+    font-size:25px;
 }

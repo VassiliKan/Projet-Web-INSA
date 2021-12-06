@@ -33,3 +33,13 @@ function emprunter(){
         }
     }
 }
+
+function addmoney(){
+    console.log("sedsd");
+    const e = document.getElementById("emp")
+    e.setAttribute("value", document.getElementById("m").innerText.replace("$",""));
+}
+
+function reset(){
+    document.getElementById("emp").value = '';
+}

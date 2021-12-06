@@ -14,6 +14,15 @@
     margin: 2% 2%
 }
 
+#valeur{
+    text-align: center;
+    margin : 2% 2%;
+
+}
+.confirmation{
+    text-align: center;
+    margin: 2% 2%;
+}
 .action{
     text-align: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;

@@ -124,7 +124,14 @@ function initTabVariations(){
     var dateVariations = JSON.parse(sessionStorage.getItem("dateVariations"));
     var refTable = document.getElementById("table_variations");
     var stocksVariations = JSON.parse(sessionStorage.getItem("stocksVariations"));
+    //var tabChart = JSON.parse(sessionStorage.getItem("tabChart"));
     var c=2;
+    for (i in tabChartHeure){
+        (tabChartHeure[i]).destroy();
+    }
+    for (i in tabChartDay){
+        (tabChartDay[i]).destroy();
+    }
     for (i in stocksVariations){
             var nouvelleLigne = refTable.insertRow(c);
 
@@ -164,6 +171,7 @@ function initTabVariations(){
                 document.getElementById(i+"_chart"),
                 config
             );
+            tabChartDay.push(myChart);
             if (dateVariations.length>168){
                 var len = 168;
             }
@@ -209,24 +217,26 @@ function initTabVariations(){
                 document.getElementById(i+"_chart2"),
                 config
             );
-                c+=1;
+            tabChartHeure.push(myChart);
+            c+=1;
     }
 }
 function modifieTabVariations(bool){
     var dateVariations = JSON.parse(sessionStorage.getItem("dateVariations"));
     var refTable = document.getElementById("table_variations");
-    var stocksVariations = JSON.parse(sessionStorage.getItem("stocksVariations"))
+    var stocksVariations = JSON.parse(sessionStorage.getItem("stocksVariations"));
+    for (i in tabChartHeure){
+        (tabChartHeure[i]).destroy();
+    }
+    if (bool){
+        for (i in tabChartDay){
+            (tabChartDay[i]).destroy();
+        }
+    }
     for (i in stocksVariations){
         //Tableau Tout temps
         if (bool){
         var dateAllTime = JSON.parse(sessionStorage.getItem("dateAllTime"));
-        nouvelleCellule = document.getElementById(i + "_cell");
-        var chart = document.createElement("canvas");
-        chart.setAttribute("id", i + "_chart");
-        //document.getElementById(i+"_chart2").destroy();
-        nouvelleCellule.removeChild(nouvelleCellule.firstChild);
-        nouvelleCellule.appendChild(chart);
-
         var data = {
             labels: dateAllTime,
             datasets: [{
@@ -249,20 +259,22 @@ function modifieTabVariations(bool){
             document.getElementById(i+"_chart"),
             config
         );
+        tabChartDay.push(myChart);
         }
         //Tableau sur la semaine
+        //document.getElementById(i+"_chart").destroy();
         if (dateVariations.length>168){
             var len = 168;
         }
         else{
             var len = dateVariations.length;
         }
-        nouvelleCellule = document.getElementById(i + "_cell2");
-        var chart = document.createElement("canvas");
-        chart.setAttribute("id", i + "_chart2");
-        nouvelleCellule.removeChild(nouvelleCellule.firstChild);
-        nouvelleCellule.appendChild(chart);
-
+        //nouvelleCellule = document.getElementById(i + "_cell2");
+        //var chart = document.createElement("canvas");
+        //chart.setAttribute("id", i + "_chart2");
+        //nouvelleCellule.removeChild(nouvelleCellule.firstChild);
+        //console.log(nouvelleCellule);
+        //nouvelleCellule.appendChild(chart);
         var data = {
             labels: dateVariations.slice(-len),
             datasets: [{
@@ -285,37 +297,8 @@ function modifieTabVariations(bool){
             document.getElementById(i+"_chart2"),
             config
         );
+        tabChartHeure.push(myChart);
     }
+    //sessionStorage.setItem("tabChart",JSON.stringify(tabChart));
 }
 // LISTENERS SUR VOLUME ET PRICE (dépendants)
-
-//Graphiques
-/**
-const labels = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-  ];
-const data = {
-    labels: labels,
-    datasets: [{
-      label: 'My First dataset',
-      backgroundColor: 'rgb(255, 99, 132)',
-      borderColor: 'rgb(255, 99, 132)',
-      data: [0, 10, 5, 2, 20, 30, 45],
-    }]
-};
-
-const config = {
-    type: 'line',
-    data: data,
-    options: {}
-};
-const myChart = new Chart(
-    document.getElementById('myChart'),
-    config
-  );
-*/

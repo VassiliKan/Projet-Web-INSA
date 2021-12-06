@@ -10,6 +10,16 @@ section table, section form{
     margin-left:80%;
     margin-right:20px;
 }
+section form{
+    position:absolute;
+    top:30px;
+    right:20px;
+}
+section table{
+    position:absolute;
+    top:150px;
+    right:20px;
+}
 section{
     position:sticky;
     top:120px;

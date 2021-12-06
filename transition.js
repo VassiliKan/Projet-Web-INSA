@@ -35,7 +35,7 @@ transition = function(bool) {
     sessionStorage.setItem("dettes",dettes);
     sessionStorage.setItem("taux",taux);
     /** actions */
-    var teta = 0.000003;
+    var teta = 0.000006;
     var dt = 1;
     var stocksAvailable = JSON.parse(sessionStorage.getItem("stocksAvailable"));
     var stocksVariations = JSON.parse(sessionStorage.getItem("stocksVariations"));

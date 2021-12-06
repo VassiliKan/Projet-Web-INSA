@@ -4,22 +4,6 @@ let date = JSON.parse(sessionStorage.getItem("date"));
 var stocksUser = JSON.parse(sessionStorage.getItem("stocksUser"));
 var stock, volume, price;
 
-/*User.prototype.getStocks = function (){
-    str = ""
-    for(var key in this.stocks){
-        str += key + " ";
-    }
-    return str;
-}
-
-User.prototype.getStocksValue = function (){
-    sum = 0
-    for(var key in this.stocks){
-        sum += this.stocks[key];
-    }
-    return sum;
-}*/
-
 function retrieveData(){
     const stock = document.getElementById("stock-select").value;
     const volume = document.getElementById("vol").value;
@@ -340,7 +324,7 @@ function removeAllChildren(node){
 function updateMontant(){
     const stock = document.getElementById("stock-select").value;
     const volume = document.getElementById("vol").value;
-    var stocksUser = JSON.parse(sessionStorage.getItem("stocksUser"));
+    const stocksUser = JSON.parse(sessionStorage.getItem("stocksUser"));
     // Verifie si le volume est bien un nombre 
     if(!isNaN(volume) && volume !=null){
         const price = Math.round(100 * volume * stocksUser[stock].unitPrice)/100;

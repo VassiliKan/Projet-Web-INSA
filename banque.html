@@ -74,9 +74,21 @@
                 <input type="radio" id="rembourser" name="emprunt" value="rembourser">
                 <label for="vendre">Rembourser</label>
             </div>
-            <div id = "emprunt">
-                <div id ="valeur">Valeur :<input text="html" id="emp"> </div>
-                <button class="confirmation" onclick="emprunter()">Confirmer</button>
+            <div class = "emprunt">
+                <div id ="valeur">Valeur : <input type="text" id="emp"> </div>
+                <div class="money">
+                    <button id="100" onclick="addmoney(100)">100</button>
+                    <button id="500" onclick="addmoney(500)">500</button>
+                    <button id="1000" onclick="addmoney(1000)">1000</button>
+                    <button id="5000" onclick="addmoney(5000)">5000</button>
+                    <button id="10000" onclick="addmoney(10000)">10000</button>
+                    <button id="50000" onclick="addmoney(50000)">50000</button>
+                    <button id="100000" onclick="addmoney(100000)">100000</button>
+                
+                </div>
+                <div>
+                    <button id = "reset" onclick="reset()">Reset</button>
+                    <button class="confirmation" onclick="emprunter()">Confirmer</button>
             </div>
         </div>
     </body>

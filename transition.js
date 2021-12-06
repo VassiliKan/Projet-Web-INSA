@@ -50,7 +50,7 @@ transition = function(bool) {
         }
         stocksUser[i].unitPrice = stocksUser[i].unitPrice * (1 + dt * teta) + dw * sigma * dt;
         /**
-        * tableau des variations omg
+        * tableau des variations 
         */
        (stocksVariations[i].variations).push(stocksUser[i].unitPrice);
        if (allTime){
@@ -68,7 +68,6 @@ transition = function(bool) {
             modifieTabBourse();
             modifieTabVariations(allTime);
             updateMontant();
-            updateValeurActionsPossede();
         }
     }
 }
@@ -83,8 +82,7 @@ transitionDay = function(){
     }
 }
 
-transitionPlay =  function ()
-{
+transitionPlay =  function () {
     var vitesse = JSON.parse(sessionStorage.getItem("vitesse"));
     var boolLaunch = JSON.parse(sessionStorage.getItem("boolLaunch"));
     if (!(boolLaunch)){

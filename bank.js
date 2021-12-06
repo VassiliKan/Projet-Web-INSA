@@ -24,12 +24,12 @@ function emprunter(){
             alert("pas assez d\'argent")
         }
         else{
-        argent = parseFloat(argent,10) - evalue;
-        document.getElementById("emp").value = '';
-        sessionStorage.setItem("argent",argent);
-        argent = sessionStorage.getItem("argent");
-        sessionStorage.setItem("dettes",dettes);
-        headerprint();
+            argent = parseFloat(argent,10) - evalue;
+            document.getElementById("emp").value = '';
+            sessionStorage.setItem("argent",argent);
+            argent = sessionStorage.getItem("argent");
+            sessionStorage.setItem("dettes",dettes);
+            headerprint();
         }
     }
 }

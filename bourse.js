@@ -324,7 +324,7 @@ function removeAllChildren(node){
 function updateMontant(){
     const stock = document.getElementById("stock-select").value;
     const volume = document.getElementById("vol").value;
-    var stocksUser = JSON.parse(sessionStorage.getItem("stocksUser"));
+    const stocksUser = JSON.parse(sessionStorage.getItem("stocksUser"));
     // Verifie si le volume est bien un nombre 
     if(!isNaN(volume) && volume !=null){
         const price = Math.round(100 * volume * stocksUser[stock].unitPrice)/100;

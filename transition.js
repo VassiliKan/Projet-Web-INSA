@@ -68,6 +68,7 @@ transition = function(bool) {
             modifieTabBourse();
             modifieTabVariations(allTime);
             updateMontant();
+            updateValeurActionsPossede();
         }
     }
 }

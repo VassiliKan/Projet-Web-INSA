@@ -10,7 +10,7 @@
         <script src="header.js"></script>
         <link rel="stylesheet" href="header.css">
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script src="bourse.js"></script>
+        <script src="bourse.js" defer></script>
         <link rel="stylesheet" href="bourse.css">
         <script type="text/javascript" src="header.js"></script>
         <script type="text/javascript" src="transition.js"></script>
@@ -71,11 +71,11 @@
     <section>
         <form>
             <div class="radio">
-                <input type="radio" id="acheter" name="achat" value="acheter" checked>
+                <input type="radio" onclick="updateSelect(1)" id="acheter" name="achat" value="acheter" checked>
                 <label for="acheter">Acheter</label>
             </div>
             <div class="radio">
-                <input type="radio" id="vendre" name="achat" value="vendre">
+                <input type="radio" onclick="updateSelect(0)" id="vendre" name="achat" value="vendre">
                 <label for="vendre">Vendre</label>
             </div>
             <div>
@@ -93,7 +93,7 @@
             </div>
             <div>
                 <label>Volume : </label>
-                <input type="text" id="vol">
+                <input type="text" onkeyup="updateMontant()" id="vol">
             </div>
             <div>
                 <label id="montant">Montant : </label>

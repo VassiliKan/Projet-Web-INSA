@@ -329,7 +329,7 @@ function updateMontant(){
     var stocksUser = JSON.parse(sessionStorage.getItem("stocksUser"));
     // Verifie si le volume est bien un nombre 
     if(!isNaN(volume) && volume !=null){
-        const price = volume * stocksUser[stock].unitPrice;
+        const price = Math.round(100 * volume * stocksUser[stock].unitPrice)/100;
         document.getElementById("montant").innerText = "Montant : " + price ;
     }
 }

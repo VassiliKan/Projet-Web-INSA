@@ -65,8 +65,9 @@ transition = function(bool) {
     headerprint();
     if (bool){
         if (window.location.href.includes("bourse.html")){
-        modifieTabBourse();
-        modifieTabVariations(allTime);
+            modifieTabBourse();
+            modifieTabVariations(allTime);
+            updateMontant();
         }
     }
 }

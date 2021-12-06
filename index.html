@@ -4,72 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="index.css">
-    <script type="text/javascript" src="header.js"></script>
-    <script type="text/javascript" src="transition.js"></script>
-    <title>Pendu</title>
+    <script type="text/javascript" src="init.js"></script>
+    <link rel="stylesheet" href="init.css">
+    <title>Document</title>
 </head>
 <body>
-    <header>
-        <div>
-            <div class="inline">
-                <p id="argent_courant">
-                    <img src="images/money icon.png" style="width:25px;"> <span id="argent_courant2"></span>
-                    $
-                </p>
-                <p id="argent_du">
-                    <img src="images/debt.png" style="width:25px;">  
-                    <span id="dettes"></span>
-                    $
-                </p>
-                <p id="argent_actifs">
-                    <img src="images/stock.png" style="width:25px;">  
-                    <span id="actifs"></span>
-                    $
-                </p>
-            </div>
-            <div>
-                <div id="play">
-                    <button style="font-size:24px" id="button_play" onClick = "transitionPlay()"><i class="fa fa-play"></i></button>
-                </div>
-                <div id="jour_suivant">
-                    <button style="font-size:24px" id="button_pass" onClick = "transitionDay()">Jour suivant</button>
-                </div>
-                <div id="pause">
-                    <button style="font-size:24px" id="button_pause" onClick = "transitionStop()"><i class="fa fa-pause"></i></button>
-                </div>
-            </div>
-            <div>
-                <p id ="date_courante">
-                    <img src="images/calendar.png" style="width:25px;">  
-                    <span id="date_jeu"></span>
-                    <img src="images/clock.png" style="width:25px;">  
-                    <span id="heure_jeu"></span>
-                </p>
-            </div>
-        </div>
-        <nav>
-            <div>
-                <a href="index.html">Accueil</a>
-            </div>
-            <div>
-                <a href="banque.html">Banque</a>
-            </div>
-            <div>
-                <a href="bourse.html">Bourse</a>
-            </div>
-        </nav>
-    </header>
-    <section>
-        <div>
-            <img src="images\bank_icon.png" alt="" onClick="window.location.href='banque.html'">
-        </div>
-        <div id="bourse">
-            <img src="images\stock_market.png" alt="" onClick="window.location.href='bourse.html'">
-        </div>
-    </section>
+    <button id="button_start" onClick="window.location.href='index.html'"><span>Commencer</span></button>
+    <!--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-->
 </body>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');

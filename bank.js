@@ -9,10 +9,10 @@ function emprunter(){
     const e = document.getElementById("emp");
     var evalue =  parseFloat(e.value,10);
     if (e.value ==''){
-        document.getElementById("emp").value = '';
+        document.getElementById("emp").setAttribute("value",'');
     }else if (document.getElementById("emprunter").checked){
         argent = parseFloat(argent,10) + evalue;
-        document.getElementById("emp").value = '';
+        document.getElementById("emp").setAttribute("value",'');
         sessionStorage.setItem("argent",argent);
         argent = sessionStorage.getItem("argent");
         dettes = parseFloat(dettes,10) + evalue;
@@ -25,7 +25,7 @@ function emprunter(){
         }
         else{
         argent = parseFloat(argent,10) - evalue;
-        document.getElementById("emp").value = '';
+        document.getElementById("emp").setAttribute("value",'');
         sessionStorage.setItem("argent",argent);
         argent = sessionStorage.getItem("argent");
         sessionStorage.setItem("dettes",dettes);
@@ -34,12 +34,18 @@ function emprunter(){
     }
 }
 
-function addmoney(){
-    console.log("sedsd");
-    const e = document.getElementById("emp")
-    e.setAttribute("value", document.getElementById("m").innerText.replace("$",""));
+function addmoney(money){
+    const e = document.getElementById("emp");
+    e.setAttribute("value", money);
+    /*
+    var evalue =  parseFloat(e.value,10);
+    var m = parseInt(money,10);
+    if(document.getElementById("emp") !== 0){
+        e.setAttribute("value", evalue + m );
+    }
+    */
 }
 
 function reset(){
-    document.getElementById("emp").value = '';
+    document.getElementById("emp").setAttribute("value",'');
 }

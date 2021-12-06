@@ -1,7 +1,6 @@
 var argent = sessionStorage.getItem("argent");
 let bank = JSON.parse(sessionStorage.getItem("bank"));
 let date = JSON.parse(sessionStorage.getItem("date"));
-var stocksAvailable = JSON.parse(sessionStorage.getItem("stocksAvailable"));
 var stocksUser = JSON.parse(sessionStorage.getItem("stocksUser"));
 var stock, volume, price;
 
@@ -24,9 +23,9 @@ User.prototype.getStocksValue = function (){
 function retrieveData(){
     const stock = document.getElementById("stock-select").value;
     const volume = document.getElementById("vol").value;
-    var stocksAvailable = JSON.parse(sessionStorage.getItem("stocksAvailable"));
-    const price = volume * stocksAvailable[stock].unitPrice
-    console.log(stocksAvailable[stock]);
+    var stocksUser = JSON.parse(sessionStorage.getItem("stocksUser"));
+    const price = volume * stocksUser[stock].unitPrice
+    console.log(stocksUser[stock]);
     if(document.getElementById("acheter").checked){
         buy(stock,volume,price);
     } else {
@@ -36,17 +35,17 @@ function retrieveData(){
 
 function buy(stock,volume,price){
     var argent = parseFloat(sessionStorage.getItem("argent"));
-    var stocksAvailable = JSON.parse(sessionStorage.getItem("stocksAvailable"));
+    var stocksUser = JSON.parse(sessionStorage.getItem("stocksUser"));
     if (argent - parseFloat(price) < 0){
         window.alert("You don't have enough money to buy this :/ Please contact your bank.");
     } else {
-        if(stocksAvailable[stock].unitsNumber == 0){
-            stocksAvailable[stock].unitsNumber = volume;
+        if(stocksUser[stock].unitsNumber == 0){
+            stocksUser[stock].unitsNumber = volume;
         } else {
-            stocksAvailable[stock].unitsNumber = parseFloat(stocksAvailable[stock].unitsNumber) + parseFloat(volume);
+            stocksUser[stock].unitsNumber = parseFloat(stocksUser[stock].unitsNumber) + parseFloat(volume);
         }
         sessionStorage.setItem("argent",argent - parseFloat(price));
-        sessionStorage.setItem("stocksAvailable",JSON.stringify(stocksAvailable));
+        sessionStorage.setItem("stocksUser",JSON.stringify(stocksUser));
         //document.getElementById("message").innerHTML = "Vous avez bien acheté " + volume + " actions " + stock;
     }
 }
@@ -54,11 +53,11 @@ function buy(stock,volume,price){
 
 function sell(stock,volume,price){
     var argent = parseFloat(sessionStorage.getItem("argent"));
-    var stocksAvailable = JSON.parse(sessionStorage.getItem("stocksAvailable"));
-    if(parseFloat(stocksAvailable[stock].unitsNumber) >= parseFloat(volume)){
-            stocksAvailable[stock].unitsNumber = parseFloat(stocksAvailable[stock].unitsNumber) - parseFloat(volume);    
+    var stocksUser = JSON.parse(sessionStorage.getItem("stocksUser"));
+    if(parseFloat(stocksUser[stock].unitsNumber) >= parseFloat(volume)){
+            stocksUser[stock].unitsNumber = parseFloat(stocksUser[stock].unitsNumber) - parseFloat(volume);    
             sessionStorage.setItem("argent", argent + parseFloat(price));
-            sessionStorage.setItem("stocksAvailable",JSON.stringify(stocksAvailable));
+            sessionStorage.setItem("stocksUser",JSON.stringify(stocksUser));
             //document.getElementById("message").innerHTML = "Vous avez bien vendu " + volume + " actions " + stock;
     } else {
         window.alert("You don't have enough stocks to sell :/");    
@@ -69,25 +68,25 @@ function sell(stock,volume,price){
 
 function initTabBourse() {
     var refTable = document.getElementById("table_bourse");
-    var stocksAvailable = JSON.parse(sessionStorage.getItem("stocksAvailable"));
+    var stocksUser = JSON.parse(sessionStorage.getItem("stocksUser"));
     var c=2;
-    for (i in stocksAvailable){
+    for (i in stocksUser){
             var nouvelleLigne = refTable.insertRow(c);
   
             // Nom
             var nouvelleCellule = nouvelleLigne.insertCell(0);
             nouvelleCellule.setAttribute("id",i+"_name");
-            var nouveauTexte = document.createTextNode(stocksAvailable[i].name);
+            var nouveauTexte = document.createTextNode(stocksUser[i].name);
             nouvelleCellule.appendChild(nouveauTexte);
             // Prix
             nouvelleCellule = nouvelleLigne.insertCell(1);
             nouvelleCellule.setAttribute("id",i+"_prix");
-            nouveauTexte = document.createTextNode(Math.round(100*stocksAvailable[i].unitPrice)/100);
+            nouveauTexte = document.createTextNode(Math.round(100*stocksUser[i].unitPrice)/100);
             nouvelleCellule.appendChild(nouveauTexte);
             // Nb possédé
             nouvelleCellule = nouvelleLigne.insertCell(2);
             nouvelleCellule.setAttribute("id",i+"_unitsNumber");
-            nouveauTexte = document.createTextNode(stocksAvailable[i].unitsNumber);
+            nouveauTexte = document.createTextNode(stocksUser[i].unitsNumber);
             nouvelleCellule.appendChild(nouveauTexte);
             c+=1;
     }
@@ -96,20 +95,20 @@ function initTabBourse() {
 
 function modifieTabBourse(){
     var refTable = document.getElementById("table_bourse");
-    var stocksAvailable = JSON.parse(sessionStorage.getItem("stocksAvailable"));
-    for (i in stocksAvailable){
+    var stocksUser = JSON.parse(sessionStorage.getItem("stocksUser"));
+    for (i in stocksUser){
             nouvelleCellule = document.getElementById(i+"_name");
-            var nouveauTexte = document.createTextNode(stocksAvailable[i].name);
+            var nouveauTexte = document.createTextNode(stocksUser[i].name);
             nouvelleCellule.removeChild(nouvelleCellule.firstChild);
             nouvelleCellule.appendChild(nouveauTexte);
 
             nouvelleCellule = document.getElementById(i+"_prix");
-            nouveauTexte = document.createTextNode(Math.round(100*stocksAvailable[i].unitPrice)/100);
+            nouveauTexte = document.createTextNode(Math.round(100*stocksUser[i].unitPrice)/100);
             nouvelleCellule.removeChild(nouvelleCellule.firstChild);
             nouvelleCellule.appendChild(nouveauTexte);
             // Nb possédé
             nouvelleCellule = document.getElementById(i+"_unitsNumber");
-            nouveauTexte = document.createTextNode(stocksAvailable[i].unitsNumber);
+            nouveauTexte = document.createTextNode(stocksUser[i].unitsNumber);
             nouvelleCellule.removeChild(nouvelleCellule.firstChild);
             nouvelleCellule.appendChild(nouveauTexte);
     }
@@ -287,35 +286,51 @@ function modifieTabVariations(bool){
         );
     }
 }
-// LISTENERS SUR VOLUME ET PRICE (dépendants)
 
-//Graphiques
-/**
-const labels = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-  ];
-const data = {
-    labels: labels,
-    datasets: [{
-      label: 'My First dataset',
-      backgroundColor: 'rgb(255, 99, 132)',
-      borderColor: 'rgb(255, 99, 132)',
-      data: [0, 10, 5, 2, 20, 30, 45],
-    }]
-};
+// Met a jour le contenu des dropdown en fonction de si l utilisateur souhaite acheter ou vendre. S il souhaite acheter, toutes les actions disponibles sont affichees. Sinon, seulement 
+// celles qu il possede le sont
+function updateSelect(isAcheter){
+    var stocksUser = JSON.parse(sessionStorage.getItem("stocksUser"));
+    var dropdown = document.getElementById("stock-select");
+    removeAllChildren(dropdown);
+    if(isAcheter){
+        for(i in stocksUser){
+            var newOpt = document.createElement("option");
+            newOpt.innerHTML = i;
+            dropdown.appendChild(newOpt);
+        }
+    } else {
+        for(i in stocksUser){
+            if(stocksUser[i] != null) {
+                if(stocksUser[i].unitsNumber != 0){
+                    var newOpt = document.createElement("option");
+                    newOpt.innerHTML = i;
+                    dropdown.appendChild(newOpt);
+                }
+            }
+        }
+    }
 
-const config = {
-    type: 'line',
-    data: data,
-    options: {}
-};
-const myChart = new Chart(
-    document.getElementById('myChart'),
-    config
-  );
-*/
+}
+
+updateSelect(1);
+
+// Fonction pour supprimer tous les elements child d un element parent
+function removeAllChildren(node){
+    while (node.firstChild) {
+        node.removeChild(node.lastChild);
+      }
+}
+
+// Met a jour le montant total de la transaction en cours (en fonction du prix de l action et du nombre d action concernees)
+function updateMontant(){
+    const stock = document.getElementById("stock-select").value;
+    const volume = document.getElementById("vol").value;
+    var stocksUser = JSON.parse(sessionStorage.getItem("stocksUser"));
+    // Verifie si le volume est bien un nombre 
+    if(!isNaN(volume) && volume !=null){
+        const price = volume * stocksUser[stock].unitPrice;
+        document.getElementById("montant").innerText = "Montant : " + price ;
+    }
+}
+

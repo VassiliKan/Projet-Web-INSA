@@ -37,34 +37,34 @@ transition = function(bool) {
     /** actions */
     var teta = 0.000003;
     var dt = 1;
-    var stocksAvailable = JSON.parse(sessionStorage.getItem("stocksAvailable"));
+    var stocksUser = JSON.parse(sessionStorage.getItem("stocksUser"));
     var stocksVariations = JSON.parse(sessionStorage.getItem("stocksVariations"));
-    for (var i in stocksAvailable){
+    for (var i in stocksUser){
         var p =  Math.random();
-        var sigma = 0.005*stocksAvailable[i].unitPrice;
+        var sigma = 0.005*stocksUser[i].unitPrice;
         if (p<1/2){
             var dw = -1;
         }
         else{
             var dw = 1;
         }
-        stocksAvailable[i].unitPrice = stocksAvailable[i].unitPrice * (1 + dt * teta) + dw * sigma * dt;
+        stocksUser[i].unitPrice = stocksUser[i].unitPrice * (1 + dt * teta) + dw * sigma * dt;
         /**
         * tableau des variations omg
         */
-       (stocksVariations[i].variations).push(stocksAvailable[i].unitPrice);
+       (stocksVariations[i].variations).push(stocksUser[i].unitPrice);
        if (allTime){
-        (stocksVariations[i].allTime).push(stocksAvailable[i].unitPrice);
+        (stocksVariations[i].allTime).push(stocksUser[i].unitPrice);
        }
     }
     sessionStorage.setItem("stocksVariations",JSON.stringify(stocksVariations));
     dateVariations = JSON.parse(sessionStorage.getItem("dateVariations"));
     dateVariations.push(date.jour +" / " + date.mois + " / " + date.annee);
     sessionStorage.setItem("dateVariations",JSON.stringify(dateVariations));
-    sessionStorage.setItem("stocksAvailable",JSON.stringify(stocksAvailable));
+    sessionStorage.setItem("stocksUser",JSON.stringify(stocksUser));
     headerprint();
     if (bool){
-        if (window.location.href >= "file:///C:/Users/Sacha/Desktop/PROG%20WEB/bourse.html"){
+        if (window.location.href.includes("bourse.html")){
         modifieTabBourse();
         modifieTabVariations(allTime);
         }
@@ -75,7 +75,7 @@ transitionDay = function(){
     for (let i=0; i<24; i++){
         transition(false);
     }
-    if (window.location.href == "file:///C:/Users/Sacha/Desktop/PROG%20WEB/bourse.html"){
+    if (window.location.href.includes("bourse.html")){
         modifieTabBourse();
         modifieTabVariations(true);
     }

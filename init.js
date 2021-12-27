@@ -5,11 +5,6 @@ function DateJeu(j,m,a,h){
     this.heure = h;
 }
 
-function Bank(t,d){
-    this.taux = t;
-    this.dettes = d;
-}
-
 function Stock(name, unitPrice, units){
     this.name = name;
     this.unitPrice = unitPrice;

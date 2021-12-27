@@ -135,7 +135,7 @@ function initTabVariations(){
             var data = {
                 labels: dateAllTime,
                 datasets: [{
-                    label: 'test',
+                    label: 'valeur de l\'action',
                     backgroundColor: 'rgb(255, 99, 132)',
                     borderColor: 'rgb(255, 99, 132)',
                     data: stocksVariations[i].allTime,
@@ -181,7 +181,7 @@ function initTabVariations(){
             var data = {
                 labels: dateVariation,
                 datasets: [{
-                    label: 'test',
+                    label: 'valeur de l\'action',
                     backgroundColor: 'rgb(255, 99, 132)',
                     borderColor: 'rgb(255, 99, 132)',
                     data: stocksVariations[i].variations,
@@ -223,7 +223,7 @@ function modifieTabVariations(bool){
         var data = {
             labels: dateAllTime,
             datasets: [{
-                label: 'test',
+                label: 'valeur de l\'action',
                 backgroundColor: 'rgb(255, 99, 132)',
                 borderColor: 'rgb(255, 99, 132)',
                 data: stocksVariations[i].allTime,
@@ -261,7 +261,7 @@ function modifieTabVariations(bool){
         var data = {
             labels: dateVariations.slice(-len),
             datasets: [{
-                label: 'test',
+                label: 'valeur de l\'action',
                 backgroundColor: 'rgb(255, 99, 132)',
                 borderColor: 'rgb(255, 99, 132)',
                 data:(stocksVariations[i].variations).slice(-len),

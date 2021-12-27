@@ -30,7 +30,8 @@ transition = function(bool) {
     /** bank */
     var dettes = parseFloat(sessionStorage.getItem("dettes"),10);
     var taux = parseFloat(sessionStorage.getItem("taux"),10);
-    dettes = dettes * (1+taux/(31*24));
+    console.log(taux);
+    dettes = dettes * (1+(taux/(100*31*24)));
     taux = taux * (1 + 1/(31*24*10));
     sessionStorage.setItem("dettes",dettes);
     sessionStorage.setItem("taux",taux);

@@ -7,10 +7,17 @@ button{
     height:20vh;
     width:30vh;
 }
+button:hover{
+    cursor:pointer;
+}
+#button_start{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border:none;
+    background-color: white;
+    padding:8px 35px;
+    border-radius:10px;
+}
 span{
     margin:auto;
     font-size:40px
-}
-#button_start{
-    padding:5px 20px;
 }

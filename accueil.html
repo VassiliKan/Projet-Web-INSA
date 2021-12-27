@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="index.css">
     <script type="text/javascript" src="header.js"></script>
     <script type="text/javascript" src="transition.js"></script>
-    <title>Pendu</title>
+    <title>Le Jeu de Simulation Boursière</title>
 </head>
 <body>
     <header>
@@ -31,13 +31,13 @@
                 </p>
             </div>
             <div>
-                <div id="play">
+                <div id="play" style="width:25%;">
                     <button style="font-size:24px" id="button_play" onClick = "transitionPlay()"><i class="fa fa-play"></i></button>
                 </div>
-                <div id="jour_suivant">
-                    <button style="font-size:24px" id="button_pass" onClick = "transitionDay()">Jour suivant</button>
+                <div id="jour_suivant" style="width:45%;">
+                    <button style="font-size:24px" id="button_pass" onClick = "transition()">Heure suivante</button>
                 </div>
-                <div id="pause">
+                <div id="pause" style="width:25%;">
                     <button style="font-size:24px" id="button_pause" onClick = "transitionStop()"><i class="fa fa-pause"></i></button>
                 </div>
             </div>
@@ -62,6 +62,11 @@
             </div>
         </nav>
     </header>
+    <div>
+        <p>
+            Empruntez de l'argent à la <a href="banque.html">Banque</a> puis faites le fructifier en  <a href="bourse.html">Bourse</a> en achetant et revendant des actions aux moments opportuns !
+        </p>
+    </div>
     <section>
         <div>
             <img src="images\bank_icon.png" alt="" onClick="window.location.href='banque.html'">

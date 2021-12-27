@@ -8,6 +8,10 @@ headerprint = function(){
     document.getElementById("heure_jeu").innerHTML = " " + date.heure +"h";
     updateValeurActionsPossede();
 }
+updateTaux = function() {
+    var taux = sessionStorage.getItem("taux");
+    document.getElementById("taux").innerHTML = Math.round(100 * taux)/100;
+}
 
 document.addEventListener('DOMContentLoaded', function() {
     headerprint();
@@ -27,3 +31,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     document.getElementById("actifs").innerText = Math.round(100 * sum)/100;
 }
+document.addEventListener('DOMContentLoaded', function() {
+    updateTaux();
+}, false);

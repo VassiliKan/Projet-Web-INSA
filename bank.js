@@ -15,16 +15,20 @@ function emprunter(){
         document.getElementById("emp").setAttribute("value",'');
         sessionStorage.setItem("argent",argent);
         argent = sessionStorage.getItem("argent");
-        dettes = parseFloat(dettes,10) + evalue;
+        dettes = parseFloat(dettes,10) + evalue * (1.1);
         sessionStorage.setItem("dettes",dettes);
         headerprint();
     }else{
-        var cond = parseFloat(argent,10) - evalue < 0;
+        var cond = parseFloat(argent,10) - evalue;
         if (cond < 0){
-            alert("pas assez d\'argent")
+            alert("pas assez d\'argent");
+        }
+        else if (parseFloat(dettes,10) - evalue<0){
+            alert("vous n(avez pas autant d'emprunts");
         }
         else{
         argent = parseFloat(argent,10) - evalue;
+        dettes = parseFloat(dettes,10) - evalue;
         document.getElementById("emp").setAttribute("value",'');
         sessionStorage.setItem("argent",argent);
         argent = sessionStorage.getItem("argent");
@@ -45,7 +49,6 @@ function addmoney(money){
     }
     */
 }
-
 function reset(){
     document.getElementById("emp").setAttribute("value",'');
 }

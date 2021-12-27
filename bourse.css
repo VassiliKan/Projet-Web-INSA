@@ -44,6 +44,47 @@ th, td{
     font-size:30px;
     width:150px;
 }
+@media (max-width:1850px){
+    .td_graph canvas{
+        width: 400px !important;
+    }
+    .td_name, #table_variations th{
+        font-size:28px;
+        width:100px;
+    }
+}
+@media (max-width:1850px){
+    .td_graph canvas{
+        width: 400px !important;
+    }
+    .td_name, #table_variations th{
+        font-size:28px;
+        width:100px;
+    }
+}@media (max-width:1500px){
+    .td_graph canvas{
+        width: 350px !important;
+    }
+    .td_name, #table_variations th{
+        font-size:25px;
+        width:50px;
+    }
+}
+@media (max-width:1450px){
+    .td_graph canvas{
+        width: 350px !important;
+    }
+    .td_name, #table_variations th{
+        font-size:20px;
+        width:30px;
+    }
+    .td_name{
+        margin:0;
+        padding:0px !important;
+    }
+}
+
+
 /**
 #table_variations{
     display:block;

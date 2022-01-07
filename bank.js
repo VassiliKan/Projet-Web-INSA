@@ -1,6 +1,13 @@
+function retrieveData(){
+    const e = parseInt(document.getElementById("emp").value);
+    if(!(isNaN(e)) && Number.isInteger(e)){
+        emprunter();
+    } else {
+        window.alert("Please enter a valid number");
+        reset();
+    }
+}
 
-
-//const e = document.getElementById("emp");
 
 function emprunter(){
     var argent = sessionStorage.getItem("argent");
@@ -40,15 +47,10 @@ function emprunter(){
 
 function addmoney(money){
     const e = document.getElementById("emp");
-    e.setAttribute("value", money);
-    /*
-    var evalue =  parseFloat(e.value,10);
-    var m = parseInt(money,10);
-    if(document.getElementById("emp") !== 0){
-        e.setAttribute("value", evalue + m );
-    }
-    */
+    e.value = money;
 }
+
+
 function reset(){
-    document.getElementById("emp").setAttribute("value",'');
+    document.getElementById("emp").value = "";
 }

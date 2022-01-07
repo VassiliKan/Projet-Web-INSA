@@ -7,13 +7,17 @@ var stock, volume, price;
 function retrieveData(){
     const stock = document.getElementById("stock-select").value;
     const volume = document.getElementById("vol").value;
-    var stocksUser = JSON.parse(sessionStorage.getItem("stocksUser"));
-    const price = volume * stocksUser[stock].unitPrice
-    console.log(stocksUser[stock]);
-    if(document.getElementById("acheter").checked){
-        buy(stock,volume,price);
+    if(isNaN(volume) && !(Number.isInteger(volume))){
+        window.alert("Please enter a valid number");
     } else {
-        sell(stock,volume,price);
+        var stocksUser = JSON.parse(sessionStorage.getItem("stocksUser"));
+        const price = volume * stocksUser[stock].unitPrice
+        console.log(stocksUser[stock]);
+        if(document.getElementById("acheter").checked){
+            buy(stock,volume,price);
+        } else {
+            sell(stock,volume,price);
+        }
     }
 }
 

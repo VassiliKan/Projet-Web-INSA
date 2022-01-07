@@ -1,56 +1,99 @@
-function retrieveData(){
-    const e = parseInt(document.getElementById("emp").value);
-    if(!(isNaN(e)) && Number.isInteger(e)){
-        emprunter();
-    } else {
-        window.alert("Please enter a valid number");
-        reset();
-    }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="banque.css">
+  <script type="text/javascript" src="bank.js"></script>
+  <script type="text/javascript" src="header.js"></script>
+  <script type="text/javascript" src="transition.js"></script>
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Banque</title>
+</head>
+<header>
+    <div>
+        <div class="inline">
+            <p id="argent_courant">
+                <img src="images/money icon.png" style="width:25px;"> <span id="argent_courant2"></span>
+                $
+            </p>
+            <p id="argent_du">
+                <img src="images/debt.png" style="width:25px;">  
+                <span id="dettes"></span>
+                $
+            </p>
+            <p id="argent_actifs">
+                <img src="images/stock.png" style="width:25px;">  
+                <span id="actifs"></span>
+                $
+            </p>
+        </div>
+        <div>
+            <div id="play" style="width:25%;">
+                <button style="font-size:24px" id="button_play" onClick = "transitionPlay()"><i class="fa fa-play"></i></button>
+            </div>
+            <div id="jour_suivant" style="width:45%;">
+                <button style="font-size:24px" id="button_pass" onClick = "transition()">Heure suivante</button>
+            </div>
+            <div id="pause" style="width:25%;">
+                <button style="font-size:24px" id="button_pause" onClick = "transitionStop()"><i class="fa fa-pause"></i></button>
+            </div>
+        </div>
+        <div>
+            <p id ="date_courante">
+                <img src="images/calendar.png" style="width:25px;">  
+                <span id="date_jeu"></span>
+                <img src="images/clock.png" style="width:25px;">  
+                <span id="heure_jeu"></span>
+            </p>
+        </div>
+    </div>
+    <nav>
+        <div>
+            <a href="accueil.html">Accueil</a>
+        </div>
+        <div>
+            <a href="banque.html">Banque</a>
+        </div>
+        <div>
+            <a href="bourse.html">Bourse</a>
+        </div>
+    </nav>
+</header>
+    <body>
+        <div id="banque">
+            <div id = "interet"> Taux d'intérêt: <span id="taux"></span> % par mois + 10% lors de l'emprunt initial</div>
+        </div>
+        <div class="action">
+            <div class="radio">
+                <input type="radio" id="emprunter" name="emprunt" value="emprunter" checked>
+                <label for="acheter">Emprunter</label>
+            </div>
+            <div class="radio">
+                <input type="radio" id="rembourser" name="emprunt" value="rembourser">
+                <label for="vendre">Rembourser</label>
+            </div>
+            <div class = "emprunt">
+                <div id ="valeur">Valeur : <input type="text" id="emp"> </div>
+                <div class="money">
+                    <button id="100" onclick="addmoney(100)">100</button>
+                    <button id="500" onclick="addmoney(500)">500</button>
+                    <button id="1000" onclick="addmoney(1000)">1000</button>
+                    <button id="5000" onclick="addmoney(5000)">5000</button>
+                    <button id="10000" onclick="addmoney(10000)">10000</button>
+                    <button id="50000" onclick="addmoney(50000)">50000</button>
+                    <button id="100000" onclick="addmoney(100000)">100000</button>
+                
+                </div>
+                <div>
+                    <button id = "reset" onclick="reset()">Reset</button>
+                    <button class="confirmation" onclick="retrieveData()">Confirmer</button>
+            </div>
+        </div>
+    </body>
 
-
-function emprunter(){
-    var argent = sessionStorage.getItem("argent");
-    let dettes = sessionStorage.getItem("dettes");
-    let date = JSON.parse(sessionStorage.getItem("date"));
-    const e = document.getElementById("emp");
-    var evalue =  parseFloat(e.value,10);
-    if (e.value ==''){
-        document.getElementById("emp").setAttribute("value",'');
-    }else if (document.getElementById("emprunter").checked){
-        argent = parseFloat(argent,10) + evalue;
-        document.getElementById("emp").setAttribute("value",'');
-        sessionStorage.setItem("argent",argent);
-        argent = sessionStorage.getItem("argent");
-        dettes = parseFloat(dettes,10) + evalue * (1.1);
-        sessionStorage.setItem("dettes",dettes);
-        headerprint();
-    }else{
-        var cond = parseFloat(argent,10) - evalue;
-        if (cond < 0){
-            alert("pas assez d\'argent");
-        }
-        else if (parseFloat(dettes,10) - evalue<0){
-            alert("vous n(avez pas autant d'emprunts");
-        }
-        else{
-        argent = parseFloat(argent,10) - evalue;
-        dettes = parseFloat(dettes,10) - evalue;
-        document.getElementById("emp").setAttribute("value",'');
-        sessionStorage.setItem("argent",argent);
-        argent = sessionStorage.getItem("argent");
-        sessionStorage.setItem("dettes",dettes);
-        headerprint();
-        }
-    }
-}
-
-function addmoney(money){
-    const e = document.getElementById("emp");
-    e.value = money;
-}
-
-
-function reset(){
-    document.getElementById("emp").value = "";
-}
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        </style>
+</html>

@@ -1,3 +1,4 @@
+
 function retrieveData(){
     const e = parseInt(document.getElementById("emp").value);
     if(!(isNaN(e)) && Number.isInteger(e)){
@@ -8,7 +9,7 @@ function retrieveData(){
     }
 }
 
-
+//Fonction permettant d'emprunter et de rembourser 
 function emprunter(){
     var argent = sessionStorage.getItem("argent");
     let dettes = sessionStorage.getItem("dettes");
@@ -17,7 +18,7 @@ function emprunter(){
     var evalue =  parseFloat(e.value,10);
     if (e.value ==''){
         document.getElementById("emp").setAttribute("value",'');
-    }else if (document.getElementById("emprunter").checked){
+    }else if (document.getElementById("emprunter").checked){        
         argent = parseFloat(argent,10) + evalue;
         document.getElementById("emp").setAttribute("value",'');
         sessionStorage.setItem("argent",argent);
